@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Dropdown from './container/Dropdown';
 
 
 function App() {
-  const[selected, setSelected] = useState()
+  
   return (
     <div>
-      <Dropdown selected={selected} setSelected={setSelected}/>
+      <Dropdown />
     </div>
   );
 }

@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import { AiFillCaretDown } from 'react-icons/ai';
 
-function Dropdown ({selected, setSelected}) {
+function Dropdown () {
     const[isActive, setIsActive] = useState(false);
+    const[state, setStatet]= useState('click me')
     const options = ["test1", "test2", "test3"];
+   
     return (
         <div className="dropdown">
             <div className="dropdown-btn" onClick={()=> setIsActive (!isActive)}>
-               Dropdown Test
+               {state}
                 <span > <AiFillCaretDown /> </span>
             </div>
            
@@ -20,21 +22,16 @@ function Dropdown ({selected, setSelected}) {
                            <> 
                             <div 
                             className="dropdown-item" 
-                            onClick={()=> {setSelected(option); setIsActive(false);}}
+                            onClick={()=> setStatet(option)}
                             > 
                                 {option}
                             </div>
-                           </>
-                           
+                           </>                           
                        )
                    })
-               }
-               
-                     
-               </div>
-               
+               }                 
+               </div>             
                )}
-
         </div>
     )
 };
