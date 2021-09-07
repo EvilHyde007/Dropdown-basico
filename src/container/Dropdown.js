@@ -1,30 +1,30 @@
 import React, {useState} from 'react';
 import { AiFillCaretDown } from 'react-icons/ai';
+import data from './data'
 
 function Dropdown () {
     const[isActive, setIsActive] = useState(false);
-    const[state, setStatet]= useState('click me')
-    const options = ["test1", "test2", "test3"];
+    const[state, setState]= useState('click me')   
    
-    return (
+    return (      
         <div className="dropdown">
             <div className="dropdown-btn" onClick={()=> setIsActive (!isActive)}>
                {state}
                 <span > <AiFillCaretDown /> </span>
-            </div>
-           
+            </div>           
                {isActive && (
                <div className="dropdown-content"> 
                {
-                   options.map((option)=> {
-                       /* const[test1, test2, test3]= option; */
+                   data.map((option)=> {
+                       const{id,text,value}= option;
                        return(
                            <> 
-                            <div 
+                            <div key={id} alt={text}
                             className="dropdown-item" 
-                            onClick={()=> setStatet(option)}
+                            onClick={()=> {setState(value); setIsActive (!isActive)}}                            
                             > 
-                                {option}
+                             {value} 
+                           
                             </div>
                            </>                           
                        )
